@@ -26,6 +26,8 @@ In general, you will receive a download link within 3-5 business days. Failure t
 
 A CUDA-capable PyTorch installation is recommended.
 
+> **Tested environment:** Python 3.9.21 with PyTorch 2.6.0+cu124 and torchvision 0.21.0+cu124. The dependency versions in `requirements.txt` are aligned with the shared environment used by the authors.
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
