@@ -22,9 +22,21 @@ To be able to download the dataset, please read [**this license agreement**](./m
 
 In general, you will receive a download link within 3-5 business days. Failure to follow the instructions may result in no response.
 
+# Environment setup
+
+A CUDA-capable PyTorch installation is recommended.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+The released super-resolution checkpoint is available from [GitHub Releases](https://github.com/valfride/lpsr-lacd/releases/tag/pre_trained_model_SR).
+
 # Usage
 
-This section provides instructions on testing the model, training it from scratch, and fine-tuning it on a custom dataset. Follow the steps below to set up and run the model. Additionally, the Optical Character Reader (OCR) used in this work for training was sourced from [GP_LPR](https://github.com/MMM2024/GP_LPR) by Liu et al.
+This section provides instructions on testing the model, training it from scratch, and fine-tuning it on a custom dataset. The Optical Character Reader (OCR) used in this work for training was sourced from [GP_LPR](https://github.com/MMM2024/GP_LPR) by Liu et al.
 
 ## Testing
 To test the model, ensure that the [config file](configs/cgnetV2_deformable_test.yaml) specifies the path to the .pth file, as shown in the example below:
@@ -38,7 +50,7 @@ model:
 ```
 Then, run the following command:
 ```
-python3 test.py --config ./config/Sibgrapi_ablation/cgnetV2_deformable.yaml --save True 
+python3 test.py --config ./configs/cgnetV2_deformable_test.yaml --save True 
 ```
 
 ## Training From Scratch
@@ -49,7 +61,7 @@ resume: null
 ```
 Then, execute the following command:
 ```
-python3 ParallelNetTrain.py --config ./config/Sibgrapi_ablation/cgnetV2_deformable_test.yaml --save True
+python3 ParallelNetTrain.py --config ./configs/cgnetV2_deformable.yaml --save True
 ```
 
 ## Training On Custom Dataset
